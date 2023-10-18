@@ -15,8 +15,8 @@ def clarinet_plot(
     df,
     lw        = 2,
     ec        = '0.2',
-    h_pad     = 0.1,
     pad       = 0.05,
+    pad_between = 0.1,
     cmap      = None,
     ax        = None,
     ascending = True,
@@ -55,9 +55,9 @@ def clarinet_plot(
 
   # center positions
   if half:
-    x_arr = (1 + h_pad) * np.arange(n_col)
+    x_arr = (1 + pad_between) * np.arange(n_col)
   else:
-    x_arr = (1 + h_pad) * 2 * np.arange(n_col)
+    x_arr = (1 + pad_between) * 2 * np.arange(n_col)
   if not vertical:
     x_arr = x_arr[::-1]
 
