@@ -25,7 +25,7 @@ def clarinet_plot(
     half      = False,
     duet      = False,
     cmap_kde  = None,
-    ax_kde    = None,
+    ax2       = None,
     swap_duet = False,
     use_rank  = False,
     heatmap   = False,
@@ -45,8 +45,10 @@ def clarinet_plot(
   if ax == None:
     fig, ax = plt.subplots()
   if duet:
-    if ax_kde == None:
-      ax_kde = ax.twinx() if vertical else ax.twiny()
+    if ax2 == None:
+      ax2 = ax.twinx() if vertical else ax.twiny()
+    if vertical != swap_duet:
+      ax, ax2 = ax2, ax
 
   # get stats
   n_col = df.shape[1]
@@ -152,7 +154,7 @@ def clarinet_plot(
 
     # draw kde
     if duet:
-      draw_func(xx_arr, x, yy_arr, ax_kde, fc=c2, ec=ec, lw=lw)
+      draw_func(xx_arr, x, yy_arr, ax2, fc=c2, ec=ec, lw=lw)
 
     # stripe
     if stripe:
