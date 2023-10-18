@@ -7,6 +7,10 @@ from scipy import stats
 from matplotlib.patches import PathPatch
 sns.set_context('talk', font_scale=0.8)
 
+def load_test_data():
+  file_name = 'test_data/test_data.csv'
+  return pd.read_csv(file_name)
+
 def clarinet_plot(
     df,
     lw        = 2,
@@ -36,6 +40,13 @@ def clarinet_plot(
   # restriction
   if duet:
     half = False
+
+  # ax
+  if ax == None:
+    fig, ax = plt.subplots()
+  if duet:
+    if ax_kde == None:
+      ax_kde = ax.twinx() if vertical else ax.twiny()
 
   # get stats
   n_col = df.shape[1]
@@ -106,8 +117,6 @@ def clarinet_plot(
 
     # kde coordinates
     if duet:
-      if ax_kde == None:
-        ax_kde = ax.twinx() if vertical else ax.twiny()
       sr2 = sr_in.dropna()
       yy_arr = np.linspace(sr2.min(), sr2.max())
       xx_arr = stats.gaussian_kde(sr2[sr2!=0])(yy_arr)

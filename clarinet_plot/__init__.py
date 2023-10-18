@@ -1,1 +1,1 @@
-from .clarinet_plot import clarinet_plot
+from .clarinet_plot import *
