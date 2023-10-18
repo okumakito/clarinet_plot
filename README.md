@@ -21,18 +21,13 @@ git clone https://github.com/okumakito/clarinet_plot.git
   ```
   import clarinet_plot as cla
   ```
-* Convert your data to a pandas DataFrame object with rows represent observations and columns represent variables such as genes, cell types, time points, experimental conditions, etc. You can load a test data by the following command:
+* Convert your data to a pandas DataFrame object with rows represent observations and columns represent variables such as genes, cell types, time points, experimental conditions, etc. If each column has different number of observations, set the number of rows to the maximum number of observations, and use `None` for missing values. **If your data is count data, it is recommended to convert them to log expression data (ex. `df2=df.apply(np.log1p)`).** You can load a test data by the following command:
   ```
   df = cla.load_testdata()
   ```
-* Prepare matplotlib's fig and ax objects:
-  ```
-  fig, ax = plt.subplots()
-  ```
 * Draw clarinet plots:
   ```
-  cla.clarinet_plot(df, ax=ax)
-  fig.show()
+  cla.clarinet_plot(df)
   ```
 
 # Options
