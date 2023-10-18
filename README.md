@@ -35,7 +35,7 @@ git clone https://github.com/okumakito/clarinet_plot.git
 * Change line width (ex. `lw=1`, default is 2)
 * Change Edge color (ex. `ec='gray'`, default is '0.2')
 * Change color map (ex. `cmap='tab10'`, default is 'husl')
-  Change padding from axes (ex. `pad=0.2`, default is 0.05)
+* Change padding from axes (ex. `pad=0.2`, default is 0.05)
 * Change padding between clarinets (ex. `pad_between=1`, default is 0.1)
 * Reverse (`asceinding=False`)
 * Horizontal (`vertical=False`)
