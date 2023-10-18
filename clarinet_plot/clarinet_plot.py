@@ -84,7 +84,7 @@ def clarinet_plot(
     c2_arr = plt.get_cmap(cmap_kde)(np.arange(n_col))
 
   # main loop
-  for i, (col, sr_in) in enumerate(df.iteritems()):
+  for i, (col, sr_in) in enumerate(df.items()):
     x  = x_arr[i]
     c  = c_arr[i]
     c2 = c2_arr[i]
