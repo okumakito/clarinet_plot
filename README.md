@@ -69,7 +69,7 @@ NOTE: `half` cannot be used with `duet`.
   import matplotlib.pyplot as plt
   fig, ax = plt.subplots()
   ax2 = ax.twinx()
-  cla.clarinet_plot(df, duet-ax=ax, ax_kde=ax2)
+  cla.clarinet_plot(df, duet-ax=ax, ax2=ax2)
   ax.set_ylabel('Left side label')
   ax2.set_ylabel('Right side label')
   fig.show()
