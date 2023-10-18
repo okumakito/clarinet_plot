@@ -46,6 +46,7 @@ git clone https://github.com/okumakito/clarinet_plot.git
 * Swap duet positions (`swap_duet=True`)
 * Set color map for kernel density estimation (ex. `cmap_kde='tab10'`)
 * Heatmap (`heatmap=True`)
+* Change heatmap color map (ex. `cmap='viridis'`, default is 'magma')
 * Stripe (`stripe=True`)
 * Change stripe number (ex. `n_stripe=20`, default is10)
 * Change stripe line width (ex. `lw_stripe=2`, default is 1)
