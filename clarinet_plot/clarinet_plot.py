@@ -5,7 +5,11 @@ import seaborn as sns
 import sys, os
 from scipy import stats
 from matplotlib.patches import PathPatch
+from matplotlib import colors
 sns.set_context('talk', font_scale=0.8)
+
+# set_clip_path > pdf
+plt.rcParams["image.composite_image"] = False
 
 def load_test_data():
   file_name = 'test_data/test_data.csv'
@@ -18,6 +22,7 @@ def clarinet_plot(
     pad       = 0.05,
     pad_between = 0.1,
     cmap      = None,
+    color     = None,
     ax        = None,
     ascending = True,
     vertical  = True,
@@ -25,6 +30,7 @@ def clarinet_plot(
     half      = False,
     duet      = False,
     cmap_kde  = None,
+    color_kde = None,
     ax2       = None,
     swap_duet = False,
     use_rank  = False,
@@ -40,6 +46,8 @@ def clarinet_plot(
   # restriction
   if duet:
     half = False
+  if color is not None:
+    heatmap = False
 
   # ax
   if ax == None:
@@ -69,10 +77,13 @@ def clarinet_plot(
       cmap = 'magma'
     else:
       cmap = 'husl'
-  if cmap == 'husl':
-    c_arr = sns.husl_palette(n_col)
+  if color is None:
+    if cmap == 'husl':
+      c_arr = sns.husl_palette(n_col)
+    else:
+      c_arr = plt.get_cmap(cmap)(np.arange(n_col))
   else:
-    c_arr = plt.get_cmap(cmap)(np.arange(n_col))
+    c_arr = colors.to_rgba(color) * np.ones(n_col).reshape(-1,1)
 
   # color for kde
   if cmap_kde == None:
@@ -80,10 +91,13 @@ def clarinet_plot(
       cmap_kde = cmap
     else:
       cmap_kde = 'husl'
-  if cmap_kde == 'husl':
-    c2_arr = sns.husl_palette(n_col)
+  if color_kde is None:
+    if cmap_kde == 'husl':
+      c2_arr = sns.husl_palette(n_col)
+    else:
+      c2_arr = plt.get_cmap(cmap_kde)(np.arange(n_col))
   else:
-    c2_arr = plt.get_cmap(cmap_kde)(np.arange(n_col))
+    c2_arr = colors.to_rgba(color_kde) * np.ones(n_col).reshape(-1,1)
 
   # main loop
   for i, (col, sr_in) in enumerate(df.items()):
