@@ -1,7 +1,8 @@
 # About this repository
 This repository provides a Python implementation of clarinet plots. Clarinet plots are plots similar to violin plots, and they are suitable for displaying zero-inflated distribution of scRNA-seq data. A clarinet plot shows the shape of quantile function raher than probability density function.
 
-The original paper is in preparation.
+The original paper:
+* M. Oku: Clarinet plots: Alternative to violin plots to display zero-inflated distribution of scRNA-seq data, IPSJ Trans. Bioinform. (accepted).
 
 # Open notebook
 - [Open notebook in Colab](https://colab.research.google.com/github/okumakito/clarinet_plot/blob/main/clarinet_plot.ipynb) (executable)
@@ -35,6 +36,7 @@ git clone https://github.com/okumakito/clarinet_plot.git
 * Change line width (ex. `lw=1`, default is 2)
 * Change Edge color (ex. `ec='gray'`, default is '0.2')
 * Change color map (ex. `cmap='tab10'`, default is 'husl')
+* Use a single color instead of color map (ex. `color='r'`, default is None)
 * Change padding from axes (ex. `pad=0.2`, default is 0.05)
 * Change padding between clarinets (ex. `pad_between=1`, default is 0.1)
 * Reverse (`asceinding=False`)
@@ -45,6 +47,7 @@ git clone https://github.com/okumakito/clarinet_plot.git
 * Duet with violin (`duet=True`)
 * Swap duet positions (`swap_duet=True`)
 * Set color map for kernel density estimation (ex. `cmap_kde='tab10'`)
+* Use a single color for kernel density estimation instead of color map (ex. `color_kde='b'`, default is None)
 * Heatmap (`heatmap=True`)
 * Change heatmap color map (ex. `cmap='viridis'`, default is 'magma')
 * Stripe (`stripe=True`)
@@ -52,7 +55,7 @@ git clone https://github.com/okumakito/clarinet_plot.git
 * Change stripe line width (ex. `lw_stripe=2`, default is 1)
 * Change stripe edge color (ex. `ec_stripe='blue'`, default is '0.2')
 
-NOTE: `half` cannot be used with `duet`.
+NOTE: `half` cannot be used with `duet`. `heatmap` cannot be used with `color`.
 
 # Advanced options
 
