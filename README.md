@@ -78,7 +78,7 @@ NOTE: `half` cannot be used with `duet`. `heatmap` cannot be used with `color`.
   fig.show()
   ```
 
-# Links
+# Introduction movies
 
 * [クラリネットプロットの紹介（統計学）](https://youtu.be/Ms8Djb-FiIU)
 * [Introduction of clarinet plot (statistics)](https://youtu.be/3WoYspcwWxs)
